@@ -3,5 +3,26 @@
 {% block title%}SymphArt Articles{% endblock %}
 
 {% block body %}
-  <h1>works</h1>
+  {% if articles %}
+    <table id="articles" class="table table-stiped">
+      <thead>
+        <tr>
+          <th>Article Title</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for article in articles %}
+          <tr>
+            <td>{{ article }}</td>
+            <td>
+              <a href="/article/1" class="btn btn-dark">Show</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No articles to display</p>
+  {% endif %}
 {% endblock %}
